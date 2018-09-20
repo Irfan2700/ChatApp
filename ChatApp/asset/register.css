@@ -1,0 +1,132 @@
+body{
+
+    background-image: url("jbolo.png")
+}
+
+h1{
+    padding-top: 20px;
+    font-style: normal;
+    padding-inline-start: 785px;
+    color: navy;
+    font-size: -webkit-xxx-large;
+    text-shadow: 0px 13px 53px rgb(14, 12, 43);
+    text-decoration: underline;
+}
+
+form{
+
+    box-shadow: 25px 20px 50px rgb(112, 109, 107);
+    font-style: bold;
+    padding-inline-start: 8%;
+    padding-top: 80px;
+    font-size: 150%;
+    align-items: center;
+    background-color: rgb(159, 213, 226);
+    backdrop-filter: 10px;
+    height: 600px;
+    margin-inline-start: 500px;
+    margin-inline-end: 470px;
+    border-radius: 30px;
+    background-position: 25%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+input[type=text], select {
+    margin-inline-start: 10px;
+    width: 80%;
+    padding: 15px;
+    border: 0.5px solid rgb(78, 236, 72);
+    border-radius: 6px;
+    resize: vertical;
+    font-size: 20px;
+    border-radius: 10px;
+    margin: 0px 0px 0px 20px;
+    
+}
+
+input[type=text]:focus {
+    background-color: #87ec90;
+}
+
+input[type=email], select {
+    margin-inline-start: 10px;
+    width: 80%;
+    padding: 15px;
+    border: 0.5px solid rgb(78, 236, 72);
+    border-radius: 6px;
+    resize: vertical;
+    font-size: 20px;
+    margin: 0px 0px 0px 20px;
+    border-radius: 10px;
+}
+
+input[type=email]:focus {
+    background-color: #87ec90;
+}
+
+input[type=number], select {
+    margin-inline-start: 10px;
+    width: 80%;
+    padding: 15px;
+    border: 0.5px solid rgb(78, 236, 72);
+    border-radius: 6px;
+    resize: vertical;
+    font-size: 20px;
+    margin: 0px 0px 0px 20px;
+    border-radius: 10px;
+}
+
+input[type=number]:focus {
+    background-color: #87ec90;
+}
+
+
+input[type=date], select {
+    margin-inline-start: 10px;
+    width: 80%;
+    padding: 15px;
+    border: 0.5px solid rgb(78, 236, 72);
+    border-radius: 6px;
+    resize: vertical;
+    font-size: 20px;
+    margin: 0px 0px 0px 20px;
+    border-radius: 10px;
+}
+
+input[type=date]:focus {
+    background-color: #87ec90;
+}
+
+input[type=password], select {
+    margin-inline-start: 20px;
+    width: 80%;
+    padding: 15px;
+    border: 0.5px solid rgb(78, 236, 72);
+    border-radius: 6px;
+    resize: vertical;
+    font-size: 20px;
+    margin: 0px 0px 0px 20px;
+    border-radius: 10px;
+}
+
+input.regpass[type=password]:focus {
+    background-color: #87ec90;
+}
+
+input.regsubmit[type=submit]{
+
+    width: 50%;
+    padding: 15px;
+    margin: 70px 10px 10px 120px;
+    border-radius: 10px;
+    font-size: 25px;
+}
+
+button.regreset[type=reset]{
+
+    width: 80%;
+    padding: 15px;
+    margin: 70px 10px 10px 10px;
+    border-radius: 10px;
+    font-size: 25px;
+}

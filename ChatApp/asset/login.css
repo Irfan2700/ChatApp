@@ -1,0 +1,92 @@
+h1{
+    padding-top: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-inline-start: 810px;
+    color: rgb(31, 103, 170);
+    font-size: 45px;
+    /* text-shadow: 0px 13px 53px rgb(14, 12, 43); */
+    text-decoration: underline;
+}
+
+h2{
+    padding-top: 10px;
+    font-style: normal;
+    padding-inline-start: 865px;
+    color: rgb(128, 0, 38);
+    font-size: 37px;
+    text-shadow: 0px 13px 53px rgb(14, 12, 43);
+    text-decoration: underline;
+}
+
+form{
+
+    box-shadow: 20px 40px 50px hsla(7, 71%, 61%, 0.911);
+    font-style: bold;
+    padding-inline-start: 5%;
+    padding-top: 70px;
+    font-size: 150%;
+    align-items: center;
+    background-color: #a7b2b9;
+    height: 300px;
+    margin-inline-start: 650px;
+    margin-inline-end: 650px;
+    border-radius: 10px;
+    background-position: 25%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+input[type=email], select {
+    margin-inline-start: 10px;
+    width: 70%;
+    padding: 12px;
+    border: 0.5px solid rgb(78, 236, 72);
+    border-radius: 6px;
+    resize: vertical;
+    font-size: 20px;
+    margin: 0px 0px 0px 20px;
+    border-radius: 10px;
+}
+
+input[type=email]:focus {
+    background-color: #87ec90;
+}
+
+input[type=password], select {
+    /* margin-inline-start: 5px; */
+    width: 75%;
+    padding: 10px;
+    border: 0.5px solid rgb(78, 236, 72);
+    border-radius: 6px;
+    resize: vertical;
+    font-size: 20px;
+    margin: 40px 40px 0px 20px;
+    border-radius: 10px;
+}
+
+input[type=password]:focus {
+    background-color: #87ec90;
+}
+
+input[type=submit]{
+
+    width: 40%;
+    padding: 13px;
+    margin: 70px 10px 10px 80px;
+    border-radius: 10px;
+    font-size: 25px;
+}
+
+button[type=button]{
+
+    width: 100%;
+    padding: 13px;
+    margin: 70px 10px 10px 00px;
+    border-radius: 10px;
+    font-size: 25px;
+}
+
+body{
+
+    background-image: url("jbolo.png")
+}
