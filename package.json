@@ -1,0 +1,24 @@
+{
+  "name": "chatapp",
+  "version": "1.0.0",
+  "description": "Chatapp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Irfan2700/ChatApp.git"
+  },
+  "author": "Irfan2700",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Irfan2700/ChatApp/issues"
+  },
+  "homepage": "https://github.com/Irfan2700/ChatApp#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.16"
+  }
+}
