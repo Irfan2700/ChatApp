@@ -19,44 +19,61 @@
 
     <div class="reg">
 
+        <script>
+        var password = document.getElementById("password")
+            , confirm_password = document.getElementById("confirm_password");
+          
+          function validatePassword(){
+            if(password.value != confirm_password.value) {
+              confirm_password.setCustomValidity("Passwords Don't Match");
+            } else {
+              confirm_password.setCustomValidity('');
+            }
+          }
+          
+          password.onchange = validatePassword;
+          confirm_password.onkeyup = validatePassword;
+          </script>
+
         <form class="regform">
             <table style="width: 100%">
                 <tr>
                     <td width ="30%">First Name : </td>
-                    <td><input class="regname" name="Fname" type="text" value="" placeholder="Your first name"></td><tr></tr>
+                    <td><input class="regname" name="firstName" type="text" value="" placeholder="Your first name" ng-model="user.firstName" required></td><tr></tr>
                 </tr>
                 <tr>
                     <td width ="30%">Last Name : </td>
-                    <td><input class="regname" name="Lname" type="text" value="" placeholder="Your last name"></td><tr></tr>
+                    <td><input class="regname" name="lastName" type="text" value="" placeholder="Your last name" ng-model="user.lastName" required></td><tr></tr>
                 </tr>
                 <tr>
                     <td width ="20%">Email Id : </td>
-                    <td><input class="regmail" name="email" type="email" placeholder="e.g. abc12@xyz.com"></td><tr></tr>
+                    <td><input class="regmail" name="email" type="email" placeholder="e.g. abc12@xyz.com" ng-model="user.email" required></td><tr></tr>
                 </tr>
                 <tr>
                     <td width ="20%">Mobile No. : </td>
-                    <td><input class="regmob" name="Mobile" type="number" placeholder="Mobile No. " min="10" max="10"></td><tr></tr>
+                    <td><input class="regmob" name="mobile" type="number" placeholder="Mobile No. " min="1000000000" max="9999999999" ng-model="user.mobile" required></td><tr></tr>
                 </tr>
-                <tr>
+                <!-- <tr ng-model="gender">
                     <td width ="20%">gender : </td>
                     <td><input class="regradio" name="gender" type="radio" value="male" checked>Male
                     <input class="regradio" name="gender" type="radio" value="female">Female
                     <input class="regradio" name="gender" type="radio" value="other">Other</td>
-                </tr>
+                </tr> -->
                 <tr>
                     <td width ="30%">Password : </td>
-                    <td><input class="regpass" name="pass" type="password"></td><tr></tr>
+                    <td><input class="regpass" name="pass" type="password" ng-model ="user.password" id="password" required></td><tr></tr>
                 </tr>
                 <tr>
                     <td width ="30%">Confirm Password : </td>
-                    <td><input class="regpass" name="Conpass" type="password"></td><tr></tr><tr></tr>
+                    <td><input class="regpass" name="Conpass" type="password" id="confirm_password" required></td><tr></tr><tr></tr>
                 </tr>
-                <tr><td><button class="regreset" type="reset" onclick="/home/irfan2700/Angular/project/html/registration.html">Reset</button></td>
-                    <td><input class="regsubmit" name="submit" type="submit" placeholder="Submit"></td>
+                <tr><td><button class="regreset" type="reset">Reset</button></td>
+                    <td><input class="regsubmit" name="submit" type="submit" placeholder="Submit" ng-click ="register()"></td>
                 </tr>
+                <tr><td><a href="#/" style="font-size: medium">Already register? Login</a></td>
+                
             </table>
         </form>
-        <p>{{message}}</p>
     </div>
 </body>
 

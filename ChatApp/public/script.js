@@ -7,12 +7,12 @@ chatApp.config(function($routeProvider){
     $routeProvider
     .when('/', {
         templateUrl: 'templates/login.html',
-        controller: 'logincontroller'
+        controller: 'loginControl'
     })
     .when('/registration', {
 
         templateUrl: 'templates/registration.html',
-        controller: 'regcontroller'
+        controller: 'registrationControl'
     });
 });
 

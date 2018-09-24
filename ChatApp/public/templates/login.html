@@ -22,17 +22,17 @@
                 <tr>
                     <td>
                         Email : </td>
-                    <td><input class="logmail" name="email" type="email" value="" placeholder="eg. abc123@xyz.com"></td>
+                    <td><input class="logmail" name="email" type="email" value="" placeholder="eg. abc123@xyz.com" ng-model = user.email required></td>
                 <tr> </tr>
                 </tr>
                 <tr><td style="
                     padding-top: 48px">Password : </td>
-                    <td><input class="logpass" name="pass" type="password" value="" placeholder=""></td>
+                    <td><input class="logpass" name="password" type="password" value="" placeholder="" ng-model = user.password required></td>
                 <tr></tr>
                 </tr>
             </tr>
             <tr><td><a href="#/registration"><button class="logbutton" type="button" >Sign-up</button></a></td>
-                <td><input class="loginbut" name="submit" type="submit" placeholder="Login"></td>
+                <td><input class="loginbut" name="submit" type="submit" ng-click = "login()"></td>
             </tr>
             </table>
         </form>

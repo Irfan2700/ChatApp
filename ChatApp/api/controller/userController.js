@@ -21,22 +21,31 @@ exports.registration = function (req, res) {
     var str = /^\S+$/;
 
     if (!(str.test(req.body.firstName) && str.test(req.body.lastName) &&
-            str.test(req.body.password) && str.test(req.body.gender))) {
+            str.test(req.body.password))) {
         var response = {
             "Success": false,
             "message": "Some input is blank.. Please enter the Credentials again .."
         };
-        return res.status(404).send(response);
+        return res.status(400).send(response);
     }
 
-    if (!((req.body.gender === 'male') || (req.body.gender === 'female') || (req.body.gender === 'other'))) {
+    // if (!((req.body.gender === 'male') || (req.body.gender === 'female') || (req.body.gender === 'other'))) {
+    //     var response = {
+    //         "Success": false,
+    //         "message": "Gender input is Incorrect.. Please enter male, female or other.."
+    //     };
+    //     return res.status(404).send(response);
+    // }
+
+    var n = /^[0-9]*$/;
+
+    if(!(n.test(req.body.mobile)) && (req.body.mobile).length < 10){
+
         var response = {
             "Success": false,
-            "message": "Gender input is Incorrect.. Please enter male, female or other.."
-        };
-        return res.status(404).send(response);
+            "message": "10-digit Mobile Number is required ... "
+        }
     }
-
 
     var re = /\S+@\S+\.\S+/;
 
@@ -45,7 +54,7 @@ exports.registration = function (req, res) {
             "Success": false,
             "message": "Email is Required in Correct format..."
         };
-        return res.status(404).send(response);
+        return res.status(400).send(response);
     }
 
     var db = new usermod();
@@ -56,10 +65,10 @@ exports.registration = function (req, res) {
     db.password = encrypt(req.body.password);
     db.firstName = req.body.firstName;
     db.lastName = req.body.lastName;
-    db.gender = req.body.gender;
+    db.mobile = req.body.mobile;
 
     usermod.find({
-        "emailId": mail
+        "emailId": mail, "mobile": req.body.mobile
     }, function (err, data) {
 
         if (err) {
@@ -67,7 +76,7 @@ exports.registration = function (req, res) {
                 "Success": false,
                 "message": "Error fetching data"
             };
-            return res.status(404).send(response);
+            return res.status(400).send(response);
         } else {
             if (data.length > 0) {
 
@@ -75,7 +84,7 @@ exports.registration = function (req, res) {
                     "Success": false,
                     "message": "Login credentials already Exist!!",
                 };
-                return res.status(404).send(response);
+                return res.status(400).send(response);
             } else {
                 db.save(function (err) {
                     // save() will run insert() command of MongoDB.

@@ -8,8 +8,8 @@ module.exports= userSchema = new registerSchema({
     "firstName": String,
     "lastName": String,
     "emailId": String,
-    "gender": String,
-    "password": String
+    "password": String,
+    "mobile" : Number
 });
 
 module.exports = mongoose.model('UserData', userSchema);
