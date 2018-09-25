@@ -13,6 +13,12 @@ chatApp.config(function($routeProvider){
 
         templateUrl: 'templates/registration.html',
         controller: 'registrationControl'
+    })
+
+    .when('/dashboard', {
+
+        templateUrl: 'templates/dashboard.html',
+        
     });
 });
 

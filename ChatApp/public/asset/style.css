@@ -222,3 +222,57 @@ button.logbutton[type=button]{
     border-radius: 10px;
     font-size: 25px;
 }
+
+/***********************************************************************************************************/
+
+textarea.chatbox{
+
+    margin: 10px 10px 5px 0px;
+    resize: none;
+    padding: 1.6%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    border-radius: 7px;
+    border-color: crimson
+
+    
+}
+
+textarea.chatbox:focus {
+    background-color: #c0f3b1;
+}
+
+button.sendButton{
+
+    padding: 20px 25px 20px 25px;
+    margin: -95px 0px 2px 1350px;
+    border-radius: 5px;
+    background: hsl(88, 72%, 50%)
+}
+
+.chatPanal{
+    background-color:rgb(202, 143, 207);
+    width: 80%;
+    height: 95%;
+    float: left;
+    
+}
+
+.messPanal{
+    background-color:rgb(236, 241, 189); 
+    width: 100%; 
+    height: 80%;
+    margin: 20px px 10px 160px; 
+    float: top;
+    /* border-radius: 20px; */
+    border-color: rgb(192, 58, 58);
+    
+}
+
+.memberPanal{
+
+    background-color:rgb(246, 217, 152); 
+    width: 20%; 
+    height: 95%; 
+    float: left;
+}

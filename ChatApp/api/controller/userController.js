@@ -2,6 +2,7 @@ var usermod = require('../models/registerMongo');
 var jwt = require('jsonwebtoken');
 // var config = require('./config.js');
 const secret = "sa98767aw2+241@ghb$wd66+/94a*xa#454aasghd";
+var eStore;
 
 
 //encrypt the user input password
@@ -143,7 +144,7 @@ exports.login = function (req, res) {
     usermod.find({
 
         "emailId": mail,
-        password: pass
+        "password": pass
 
     }, function (err, data) {
         // Mongo command to fetch all data from collection.
@@ -163,10 +164,12 @@ exports.login = function (req, res) {
 
                 token = jwt.sign({ emailId : mail , password: pass }, secret ,{expiresIn: '12d'})
 
+                var userid= data[0]._id;
                 var response = {
                     "Success": true,
                     "message": "login sucessful",
-                    "token": token
+                    "token": token,
+                    "userid":userid
                 };
                 return res.status(200).send(response);
             } else {
@@ -179,4 +182,31 @@ exports.login = function (req, res) {
         }
 
     });
+}
+
+exports.memberList = function (req, res){
+
+var userid ;
+    var response = {};
+    usermod.find({"emailId": { $ne: (eStore) }}, function(err, data){
+
+        if(err){
+            response ={ "message": "Error fetching data"}
+        }else{
+            response = { "message": data };
+        }
+        return res.status(200).json(response);
+    });
+    
+}
+
+exports.dashboard = function (req, res) {
+
+
+}
+
+
+exports.messageSend = function (req, res) {
+
+
 }

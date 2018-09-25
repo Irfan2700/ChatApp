@@ -18,11 +18,20 @@ chatApp.controller('loginControl', function($scope, $http){
            data: $scope.user
        }).then(function(response){
            console.log(response);
-           console.log(response.data.Success);
+           console.log(response.data);
            
            if(response.data.Success==true){
                console.log("successfull");
                $scope.message="login Successful";
+               var token = ''+ response.data.token;
+               if(token.length > 0){
+
+                    $http({
+                        method: 'GET',
+                        url: '/list',
+                        data: $scope.data
+                    })
+               }
            }
            else if(response.status==400){
                $scope.message="login Unsuccessful"
