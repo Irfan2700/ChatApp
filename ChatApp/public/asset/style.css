@@ -224,16 +224,17 @@ button.logbutton[type=button]{
 }
 
 /***********************************************************************************************************/
-
+/* 
 textarea.chatbox{
 
-    margin: 10px 10px 5px 0px;
+    margin: 740px 10px 5px 300px;
     resize: none;
     padding: 1.6%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 16px;
     border-radius: 7px;
-    border-color: crimson
+    border-color: crimson;
+    position:absolute
 
     
 }
@@ -247,32 +248,43 @@ button.sendButton{
     padding: 20px 25px 20px 25px;
     margin: -95px 0px 2px 1350px;
     border-radius: 5px;
-    background: hsl(88, 72%, 50%)
+    background: hsl(88, 72%, 50%);
+    position:absolute
 }
 
-.chatPanal{
+#chatPanal{
     background-color:rgb(202, 143, 207);
-    width: 80%;
-    height: 95%;
-    float: left;
+    margin: 0px 30px 0px 150px;
+    width: auto;
+    height: auto;
+    
+    position:absolute
     
 }
 
-.messPanal{
+#messPanal{
     background-color:rgb(236, 241, 189); 
     width: 100%; 
     height: 80%;
     margin: 20px px 10px 160px; 
-    float: top;
+    
     /* border-radius: 20px; */
-    border-color: rgb(192, 58, 58);
+    /* border-color: rgb(192, 58, 58);
+    position:absolute
     
 }
 
-.memberPanal{
+#memberPanal{
 
-    background-color:rgb(246, 217, 152); 
+    background-color:rgb(94, 144, 250); 
+    margin: 0px 0px 0px 30px;
     width: 20%; 
     height: 95%; 
-    float: left;
-}
+    
+    display: inline;
+} */
+
+
+
+
+

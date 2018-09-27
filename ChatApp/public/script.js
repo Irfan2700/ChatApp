@@ -18,7 +18,7 @@ chatApp.config(function($routeProvider){
     .when('/dashboard', {
 
         templateUrl: 'templates/dashboard.html',
-        
+        controller: 'dashboardControl'
     });
 });
 

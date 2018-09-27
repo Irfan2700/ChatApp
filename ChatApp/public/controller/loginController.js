@@ -1,6 +1,6 @@
 // controller code for login-Controller
 
-chatApp.controller('loginControl', function($scope, $http){
+chatApp.controller('loginControl', function($scope, $http, $location){
 
         console.log('login');
         $scope.user={
@@ -17,23 +17,24 @@ chatApp.controller('loginControl', function($scope, $http){
            url: '/login',
            data: $scope.user
        }).then(function(response){
-           console.log(response);
+        console.log(response)
            console.log(response.data);
+           localStorage.setItem('token',response.data.token)
+           localStorage.setItem('userid', response.data.userid)
+           //console.log(response.data);
+
+        //    console.log(localStorage.getItem('token'));
+        //    console.log(localStorage.getItem('userid'))
            
            if(response.data.Success==true){
                console.log("successfull");
                $scope.message="login Successful";
-               var token = ''+ response.data.token;
-               if(token.length > 0){
-
-                    $http({
-                        method: 'GET',
-                        url: '/list',
-                        data: $scope.data
-                    })
-               }
+            $location.path("/dashboard");
+            //    var token = ''+ response.data.token;
+               
            }
-           else if(response.status==400){
+           else if(response.data.status==401){
+               console.log(response.message)
                $scope.message="login Unsuccessful"
            }
        })

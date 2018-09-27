@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/UserData', { useNewUrlParser: true });
- var registerSchema = mongoose.Schema;
+// mongoose.connect('mongodb://localhost:27017/UserData', { useNewUrlParser: true });
+//  var registerSchema = mongoose.Schema;
 
 module.exports= userSchema = {
 

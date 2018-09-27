@@ -1,4 +1,4 @@
-<!DOCTYPE <!DOCTYPE html>
+<!-- <!DOCTYPE <!DOCTYPE html>
 <html>
 
 <head>
@@ -8,25 +8,40 @@
 
     <link rel="stylesheet" href="../asset/style.css" />
     <script src="script.js"></script>
+style="background-color:aqua; width: 100%; height: 8%; float: top"
+</head> -->
 
-</head>
+<!-- <body> -->
+<div id="container">
+    <div id="header">
+        <!-- <div id="logo"><img src="../images/chatapp.png" width="100px" height="100px"></div> -->
+        <h1 class="h1" align="center">CHAT APP</h1>
+        <div id="logout"><button type="button" ng-click ="logout()">Logout..!</button></div>
+    </div>
+    <div id=Area>
+        <div id="leftarea">
+            <div id="user" ><li ng-repeat = "name in userlist">
+                <a href="#">{{name}}</a>
+            </li></div>
+        </div>
+        <div id="rightarea">
+            <div id="messagebox">Message Box</div>
+            <div id="sendbox">
+                <div id="textarea">
+                    <textarea id="text" rows="4" cols="50" placeholder="Enter your message"></textarea><button id="sendbtn" type="button" onclick="alert(':-( Nothing to Send')" placeholder="send">send!</button>
+                </div>
 
-<body>
-    <div class="tilePanal" style="background-color:aqua; width: 100%; height: 8%; float: top"></div>
-    <div class="memberPanal"></div>
-    <div class="chatPanal">
-
-        <div class="messPanal"></div>
-        <div>
-            <textarea class="chatbox" rows="5" cols="160"></textarea><button class="sendButton" type="submit">Send</button>
+            </div>
         </div>
     </div>
+</div>
 
-    <!-- <div>
-    <textarea class="chatbox" rows="8" cols="75"></textarea>
+
+<!-- <textarea class="chatbox" rows="8" cols="75"></textarea>
 </div><div></div><button class = "sendButton" type="submit" >Send</button>
 </div> -->
+-->
 
-</body>
-
-</html>
+<!-- </body> -->
+<!-- 
+</html> -->

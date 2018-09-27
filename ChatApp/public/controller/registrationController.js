@@ -1,6 +1,6 @@
 //controller for registration
 // var chatApp = angular.module('registerController', []);
-chatApp.controller('registrationControl', function($scope, $http) {
+chatApp.controller('registrationControl', function($scope, $http, $location) {
     console.log('register');
     $scope.user={
         'firstName': '',
@@ -35,6 +35,7 @@ chatApp.controller('registrationControl', function($scope, $http) {
         if(response.data.Success==true){
             console.log("successfull");
             $scope.message="Registration Successful";
+            $location.path("/");
         }
         else if(response.status==400){
             $scope.message="Registration Unsuccessful"

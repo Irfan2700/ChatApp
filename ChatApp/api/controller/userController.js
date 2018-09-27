@@ -1,8 +1,13 @@
+/**
+ * 
+ */
 var usermod = require('../models/registerMongo');
 var jwt = require('jsonwebtoken');
-// var config = require('./config.js');
-const secret = "sa98767aw2+241@ghb$wd66+/94a*xa#454aasghd";
-var eStore;
+var config = require('./config.json');
+
+var config = require('./config.json');
+const secret = config.secret;
+// var eStore;
 
 
 //encrypt the user input password
@@ -40,7 +45,7 @@ exports.registration = function (req, res) {
 
     var n = /^[0-9]*$/;
 
-    if(!(n.test(req.body.mobile)) && (req.body.mobile).length < 10){
+    if (!(n.test(req.body.mobile)) && (req.body.mobile).length < 10) {
 
         var response = {
             "Success": false,
@@ -69,7 +74,8 @@ exports.registration = function (req, res) {
     db.mobile = req.body.mobile;
 
     usermod.find({
-        "emailId": mail, "mobile": req.body.mobile
+        "emailId": mail,
+        "mobile": req.body.mobile
     }, function (err, data) {
 
         if (err) {
@@ -157,19 +163,23 @@ exports.login = function (req, res) {
         } else {
             if (data.length > 0) {
 
-                var iD, token;
-                // usermod.find(req.params.id, function (data) {
-                //     iD = data;
-                // });
+                
 
-                token = jwt.sign({ emailId : mail , password: pass }, secret ,{expiresIn: '12d'})
-
-                var userid= data[0]._id;
+                var token = jwt.sign({
+                    emailId: mail,
+                    password: pass
+                
+                }, secret, {
+                    expiresIn: '12d'
+                })
+                // var db = new usermod();
+                var userid = data[0]._id;
+                // console.log(db._id);
                 var response = {
                     "Success": true,
                     "message": "login sucessful",
                     "token": token,
-                    "userid":userid
+                    "userid": userid
                 };
                 return res.status(200).send(response);
             } else {
@@ -184,24 +194,47 @@ exports.login = function (req, res) {
     });
 }
 
-exports.memberList = function (req, res){
+exports.memberList = function (req, res) {
 
-var userid ;
-    var response = {};
-    usermod.find({"emailId": { $ne: (eStore) }}, function(err, data){
-
-        if(err){
-            response ={ "message": "Error fetching data"}
-        }else{
-            response = { "message": data };
-        }
-        return res.status(200).json(response);
-    });
+    var userid = req.params.id;
     
+    var response = {};
+    var arrList = [];
+    var respo = {};
+    usermod.find({
+        "_id": {
+            $ne: (userid)
+        }
+    }, function (err, data) {
+
+        if (err) {
+            response = {
+                "message": "Error fetching data"
+            }
+        } else {
+            response = {
+                "message": data
+            };
+        }
+        if(response.message.length)
+        for (var i = 0; i < response.message.length; i++) {
+            arrList.push({
+
+                username: response.message[i].firstName + ' ' + response.message[i].lastName,
+                userid: response.message[i]._id
+            });
+        }
+        respo = {
+            "data": arrList
+        }
+        return res.status(200).json(respo);
+    });
+
 }
 
 exports.dashboard = function (req, res) {
 
+    
 
 }
 
