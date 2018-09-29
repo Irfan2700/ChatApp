@@ -2,6 +2,7 @@
  * 
  */
 var usermod = require('../models/registerMongo');
+var chatmod = require('../models/chatMessgModel');
 var jwt = require('jsonwebtoken');
 var config = require('./config.json');
 
@@ -163,23 +164,25 @@ exports.login = function (req, res) {
         } else {
             if (data.length > 0) {
 
-                
+
 
                 var token = jwt.sign({
                     emailId: mail,
                     password: pass
-                
+
                 }, secret, {
                     expiresIn: '12d'
                 })
                 // var db = new usermod();
                 var userid = data[0]._id;
+                var username = data[0].firstName+" "+data[0].lastName
                 // console.log(db._id);
                 var response = {
                     "Success": true,
                     "message": "login sucessful",
                     "token": token,
-                    "userid": userid
+                    "userid": userid,
+                    "username": username
                 };
                 return res.status(200).send(response);
             } else {
@@ -197,7 +200,7 @@ exports.login = function (req, res) {
 exports.memberList = function (req, res) {
 
     var userid = req.params.id;
-    
+
     var response = {};
     var arrList = [];
     var respo = {};
@@ -216,14 +219,14 @@ exports.memberList = function (req, res) {
                 "message": data
             };
         }
-        if(response.message.length)
-        for (var i = 0; i < response.message.length; i++) {
-            arrList.push({
+        if (response.message.length)
+            for (var i = 0; i < response.message.length; i++) {
+                arrList.push({
 
-                username: response.message[i].firstName + ' ' + response.message[i].lastName,
-                userid: response.message[i]._id
-            });
-        }
+                    username: response.message[i].firstName + ' ' + response.message[i].lastName,
+                    userid: response.message[i]._id
+                });
+            }
         respo = {
             "data": arrList
         }
@@ -232,14 +235,65 @@ exports.memberList = function (req, res) {
 
 }
 
-exports.dashboard = function (req, res) {
+exports.chatAddHistory = function (userid, username, message, dateTime) {
 
+    var response = {};
+    var db = new chatmod();
+
+    db.userid = userid;
+    db.username = username
+    db.message = message;
+    db.dateTime = dateTime;
+
+
+    db.save(function (err) {
+
+        if (err) {
+
+            response = {
+                'Success': "false",
+                'message': "Error in Data Fetching"
+            }
+        } else {
+
+            response = {
+
+                'Success': "true",
+                'message': "Message Data successfully Saved into DataBase "
+            }
+        };
+        console.log(response);
+    })
+
+    
+    
     
 
 }
 
 
-exports.messageSend = function (req, res) {
 
 
+exports.chatlist = function (req, res) {
+
+    var respo = {};
+
+    chatmod.find({}, function (err, data) {
+
+        if (err) {
+
+            respo = {
+                'Success': "false",
+                'message': "Error in fetching data "
+            }
+        } else {
+            respo = {
+                'Success': 'true',
+                'message': data
+            }
+        }
+
+       // console.log(respo)
+        return res.status(200).send(respo);
+    });
 }

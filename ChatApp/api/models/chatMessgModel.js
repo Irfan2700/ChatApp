@@ -1,11 +1,23 @@
-
 var mongoose = require('mongoose');
 
 module.exports = chatSchema = {
 
-    'userid': {type: String, required: true},
-    'message': {type: String, required: true},
-    'dateTime': {type: String, required: true}
+    'userid': {
+        type: String,
+        required: true
+    },
+    'username': {
+        type: String,
+        required: true
+    },
+    'message': {
+        type: String,
+        required: true
+    },
+    'dateTime': {
+        type: String,
+        required: true
+    }
 
 }
 

@@ -17,10 +17,11 @@ chatApp.controller('loginControl', function($scope, $http, $location){
            url: '/login',
            data: $scope.user
        }).then(function(response){
-        console.log(response)
-           console.log(response.data);
+       // console.log(response.data)
+           console.log(response.data.username);
            localStorage.setItem('token',response.data.token)
            localStorage.setItem('userid', response.data.userid)
+           localStorage.setItem('uname', response.data.username)
            //console.log(response.data);
 
         //    console.log(localStorage.getItem('token'));

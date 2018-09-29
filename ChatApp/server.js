@@ -4,7 +4,8 @@
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
-const io = require('socket.io')(server)
+const Socket = require('socket.io')
+var users = require('./api/controller/userController');
 //var router = express.Router();
 
 app.use(bodyParser.json());
@@ -20,23 +21,23 @@ app.use(express.static('./public'));
 var server = app.listen(4100);
 console.log("Listening to PORT 4100");
 
-io.on('connection', function(socket){
-    console.log('made socket connection');
+var io = Socket(server);
 
-    socket.username = "Anonymous";
+io.on('connection', function(client){
 
-    socket.on('change_username', function(data) {
+    console.log('A user enter in the room');
 
-        socket.username = data.username
+    client.on('disconnect', function(){
+        console.log("socket disconnected ")
     })
 
-    socket.on('new_message', function(data){
 
-        io.sockets.emit('new_message', {message : data.message, username: socket.username});
+    client.on('chatRoomBackend', function(data) {
+               
+       users.chatAddHistory(data.userid, data.username, data.message, data.dateTime);
+        
+       // console.log(chathistory);
+        io.emit('chatroomClient', data);
+        // client.broadcast.emit('chatroomClient', data);
     })
-
-    socket.on('typing', function(data){
-
-        socket.broadcast.emit('typing', {username: socket.username})
-    })
-})
+});

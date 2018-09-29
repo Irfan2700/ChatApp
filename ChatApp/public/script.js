@@ -1,4 +1,5 @@
-var chatApp = angular.module('chatApp',['ngRoute']);
+
+var chatApp = angular.module('chatApp',['ngRoute', 'btford.socket-io']);
 
 /*config the route */
 
@@ -21,6 +22,16 @@ chatApp.config(function($routeProvider){
         controller: 'dashboardControl'
     });
 });
+
+chatApp.service('SocketService', ['socketFactory', function SocketService(socketFactory) {
+    return socketFactory({
+        ioSocket: io.connect('http://localhost:4100')
+    });
+}]);
+
+  //var socket = io.connect('http://localhost:4100');
+
+
 
 
 

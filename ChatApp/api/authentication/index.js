@@ -12,7 +12,7 @@ var token=req.headers["token"];
 var respo = {
       'message': "Unauthorised Entry "
 };
-      console.log("in auth ", token);
+      //console.log("in auth ", token);
       jwt.verify(token, secret, function(err, decoded) {
             if(err)
             {
@@ -20,7 +20,7 @@ var respo = {
                   return res.status(401).send(respo);
             }
             else{
-                  console.log(decoded);
+                  //console.log(decoded);
                   next();
             }
            // console.log(decoded.foo) // bar

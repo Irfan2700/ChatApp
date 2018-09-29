@@ -16,7 +16,7 @@ style="background-color:aqua; width: 100%; height: 8%; float: top"
     <div id="header">
         <!-- <div id="logo"><img src="../images/chatapp.png" width="100px" height="100px"></div> -->
         <h1 class="h1" align="center">CHAT APP</h1>
-        <div id="logout"><button type="button" ng-click ="logout()">Logout..!</button></div>
+        <div id="logout"><button id=logoutButton type="button" ng-click ="logout()">Logout</button></div>
     </div>
     <div id=Area>
         <div id="leftarea">
@@ -25,13 +25,15 @@ style="background-color:aqua; width: 100%; height: 8%; float: top"
             </li></div>
         </div>
         <div id="rightarea">
-            <div id="messagebox">Message Box</div>
+            <div id="messagebox" >
+                <p ng-repeat = "chat in chatlist">{{chat.username}} : {{chat.message}}</p>
+            </div>
             <div id="sendbox">
                 <div id="textarea">
-                    <textarea id="text" rows="4" cols="50" placeholder="Enter your message"></textarea><button id="sendbtn" type="button" onclick="alert(':-( Nothing to Send')" placeholder="send">send!</button>
+                    <textarea id="text" rows="4" cols="50" placeholder="Enter your message" ng-model = "message" required></textarea><button id="sendbtn" type="button" placeholder="send" ng-click = "add()">send!</button>
                 </div>
 
-            </div>
+            </div>dashboard
         </div>
     </div>
 </div>
@@ -40,7 +42,7 @@ style="background-color:aqua; width: 100%; height: 8%; float: top"
 <!-- <textarea class="chatbox" rows="8" cols="75"></textarea>
 </div><div></div><button class = "sendButton" type="submit" >Send</button>
 </div> -->
--->
+
 
 <!-- </body> -->
 <!-- 
