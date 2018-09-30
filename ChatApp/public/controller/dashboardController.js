@@ -38,6 +38,7 @@ chatApp.controller('dashboardControl', function($scope, $http, $location, Socket
 
         localStorage.removeItem('token');
         localStorage.removeItem('userid');
+        localStorage.removeItem('uname');
         $location.path("/");
     }
 
@@ -72,7 +73,9 @@ chatApp.controller('dashboardControl', function($scope, $http, $location, Socket
             
 
     })
-    
+    uName = [];
+    uName.push(uname);
+    $scope.userName = uName;
 
     SocketService.on('chatroomClient', function(msg) {
 

@@ -1,7 +1,8 @@
 #container{
     width:1600px;
     margin:0 auto;
-    background: rgba(45, 204, 72, 0.692);
+    /* background: rgba(45, 204, 72, 0.692); */
+    background-image: url('wv_home_bkgnd_photo.jpg');
 }
 #header{
     
@@ -115,4 +116,44 @@
     border-radius: 6px;
     padding: 10px 0px 0px 13px;
     /* font-family: sans-serif; */
+}
+
+#messgContainer{
+
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 40%;
+    height: 56px;
+    font-size: small;
+    color: #031268
+}
+
+#time-right{
+
+    float: right;
+    color: #aaa;
+    font-size: 12px;
+}
+
+#messgText{
+
+    padding: 24px;
+    font-family: cursive;
+    font-size: 17px;
+    color: black
+    
+
+}
+
+#userName{
+
+    float: left;
+    padding: 22px;
+    font-size: 22px;
+    color: #6b1c00;
+    margin: 4px 0px 0px 44px;
+    font-family: monospace;
 }

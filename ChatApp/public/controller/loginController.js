@@ -2,6 +2,10 @@
 
 chatApp.controller('loginControl', function($scope, $http, $location){
 
+    if(localStorage.getItem('token') !== null){
+
+        $location.path("/dashboard");
+   }
         console.log('login');
         $scope.user={
             'email': '',
@@ -39,6 +43,8 @@ chatApp.controller('loginControl', function($scope, $http, $location){
                $scope.message="login Unsuccessful"
            }
        })
+
+       
        }
        
    });

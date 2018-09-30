@@ -1,6 +1,12 @@
 //controller for registration
 // var chatApp = angular.module('registerController', []);
 chatApp.controller('registrationControl', function($scope, $http, $location) {
+
+    if(localStorage.getItem('token') !== null){
+
+        $location.path("/dashboard");
+   }
+
     console.log('register');
     $scope.user={
         'firstName': '',

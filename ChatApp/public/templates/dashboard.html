@@ -16,6 +16,7 @@ style="background-color:aqua; width: 100%; height: 8%; float: top"
     <div id="header">
         <!-- <div id="logo"><img src="../images/chatapp.png" width="100px" height="100px"></div> -->
         <h1 class="h1" align="center">CHAT APP</h1>
+        <p ng-repeat = "uname in userName" id="userName">{{uname}}</p>
         <div id="logout"><button id=logoutButton type="button" ng-click ="logout()">Logout</button></div>
     </div>
     <div id=Area>
@@ -26,7 +27,8 @@ style="background-color:aqua; width: 100%; height: 8%; float: top"
         </div>
         <div id="rightarea">
             <div id="messagebox" >
-                <p ng-repeat = "chat in chatlist">{{chat.username}} : {{chat.message}}</p>
+                <div ><p ng-repeat = "chat in chatlist" id="messgContainer">{{chat.username}} : <span id="messgText">{{chat.message}}</span><span id="time-right">{{chat.dateTime | date: 'medium'}}</span></p>
+                </div>
             </div>
             <div id="sendbox">
                 <div id="textarea">
