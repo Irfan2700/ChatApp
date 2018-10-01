@@ -42,6 +42,7 @@
     height: 771px;
     background: rgba(118, 219, 34, 0.651);
     margin: -71px 0px 0px 0px;
+    /* overflow: scroll; */
 }
    
 
@@ -61,6 +62,7 @@
     margin: 2px 0px 0px 0px;
     border-radius: 10px;
     padding: 19px 5px 10px 18px;
+    overflow: scroll;
 }
 
 
@@ -68,12 +70,13 @@
     width: 1149px;
     height: 619px;
     border: 1px solid #333;
-    background: #fff8bc;
+    background: #8cccd4;
     margin: -69px 0px 4px 0px;
     padding: 53px 32px 0px;
     resize: none;
     border-radius: 10px;
-    overflow: scroll;
+    overflow: auto;
+    
 }
 
 #sendbox {
@@ -118,22 +121,23 @@
     /* font-family: sans-serif; */
 }
 
-#messgContainer{
+#leftmessgContainer{
 
     border: 2px solid #dedede;
     background-color: #f1f1f1;
     border-radius: 5px;
-    padding: 10px;
+    padding: 12px;
     margin: 10px;
-    width: 40%;
-    height: 56px;
-    font-size: small;
-    color: #031268
+    width: 58%;
+    height: auto;
+    font-size: 15px;
+    color: #031268;
+    float: left;
 }
 
-#time-right{
+#left-time{
 
-    float: right;
+    float: left;
     color: #aaa;
     font-size: 12px;
 }
@@ -145,7 +149,6 @@
     font-size: 17px;
     color: black
     
-
 }
 
 #userName{
@@ -156,4 +159,34 @@
     color: #6b1c00;
     margin: 4px 0px 0px 44px;
     font-family: monospace;
+}
+
+#memberlist{
+
+    font-size: 20px;
+    font-style: italic;
+    font-family: sans-serif;
+    padding: 4px;
+    color: #F44336;
+}
+
+#rightMessgContainer{
+
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 12px;
+    margin: 10px;
+    width: 58%;
+    height: auto;
+    font-size: 15px;
+    color: #031268;
+    float: right;
+}
+
+#right-time{
+
+    float: left;
+    color: #aaa;
+    font-size: 12px;
 }

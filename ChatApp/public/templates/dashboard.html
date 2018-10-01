@@ -21,13 +21,14 @@ style="background-color:aqua; width: 100%; height: 8%; float: top"
     </div>
     <div id=Area>
         <div id="leftarea">
-            <div id="user" ><li ng-repeat = "name in userlist">
+            <div id="user" ><li id="memberlist" ng-repeat = "name in userlist">
                 <a href="#">{{name}}</a>
             </li></div>
         </div>
         <div id="rightarea">
             <div id="messagebox" >
-                <div ><p ng-repeat = "chat in chatlist" id="messgContainer">{{chat.username}} : <span id="messgText">{{chat.message}}</span><span id="time-right">{{chat.dateTime | date: 'medium'}}</span></p>
+                <div ><div ng-repeat = "chat in chatlist"><p  id="leftmessgContainer" ng-if = "currentUserId != chat.userid">{{chat.username}} : <span id="messgText">{{chat.message}}</span><br><br><span id="left-time">{{chat.dateTime | date: 'medium'}}</span></p>
+                        <p id="rightMessgContainer" ng-if = "currentUserId == chat.userid">{{chat.username}} : <span id="messgText">{{chat.message}}</span><br><br><span id="right-time">{{chat.dateTime | date: 'medium'}}</span></p></div>
                 </div>
             </div>
             <div id="sendbox">

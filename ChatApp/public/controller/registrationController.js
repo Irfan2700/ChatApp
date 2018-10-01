@@ -13,19 +13,20 @@ chatApp.controller('registrationControl', function($scope, $http, $location) {
         'lastName': '',
         'email': '',
         'mobile': '',
-        'password': ''
+        'password': '',
+        'conpass': ''
         
     }
-    // var pass = $scope.user.password;
-    // var conpas = $scope.user.conpass;
+    var pass = $scope.user.password;
+    var conpas = $scope.user.conpass;
 
-    // if(pass.value != conpas.value) {
+    console.log(pass)
+    console.log(conpas)
+
+    // if(pass !== conpas) {
     //     console.log("Passwords Don't Match");
-    //     return;
-    //   } else {
-    //     console.log('');
-    //   }
-
+    //     $scope.errmessg = 
+    // }
 
     console.log($scope.user);
      $scope.register = function(){
@@ -48,5 +49,6 @@ chatApp.controller('registrationControl', function($scope, $http, $location) {
         }
     })
     }
-    
+// }else{
+   
 });

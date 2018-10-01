@@ -4,23 +4,28 @@
 
 chatApp.controller('dashboardControl', function($scope, $http, $location, SocketService){
 
-    if(localStorage)
+    
+        //using the data present in the localStorage
     var userid = localStorage.getItem('userid');
     var token = localStorage.getItem('token');
     var uname = localStorage.getItem('uname');
     // var path = '/auth/users/'+userid+'/userlist'
 
-     
-    
+            //AJAX request to show all the chathistory on the message box
     $http({
-
-        method: 'GET',
+                
+        method: 'GET',      
         url: '/auth/users/'+userid+'/userlist',
-        headers: {
+        headers: {      //header for the authentication process
             'token': token
           },
+
+                //promise for the a required
     }).then (function(response){
-        console.log(response);
+        console.log(response.status);
+        if(response.status === '401'){
+            $location.path("/");
+        }
         var userList=[];
         console.log(response.data.data[0])
         info = response.data.data;
@@ -31,7 +36,8 @@ chatApp.controller('dashboardControl', function($scope, $http, $location, Socket
         $scope.userlist = userList;
         console.log("Authenticated successfully")
     },function(error){
-        console.log("Error in fetching data")        
+        console.log("Error in fetching data")   
+        
     })
 
     $scope.logout = function(){
@@ -53,6 +59,7 @@ chatApp.controller('dashboardControl', function($scope, $http, $location, Socket
         SocketService.emit('chatRoomBackend', {'userid': userid, 'username': uname, 'message': $scope.message, 'dateTime': new Date()});
         //$scope.chatlist.push({'userid': userid, 'username': uname, 'message': $scope.message, 'dateTime': new Date()})
         }
+        $scope.message = null;
     }
 
     $http({
@@ -76,6 +83,7 @@ chatApp.controller('dashboardControl', function($scope, $http, $location, Socket
     uName = [];
     uName.push(uname);
     $scope.userName = uName;
+    $scope.currentUserId = userid;
 
     SocketService.on('chatroomClient', function(msg) {
 
@@ -83,6 +91,7 @@ chatApp.controller('dashboardControl', function($scope, $http, $location, Socket
         $scope.chatlist.push(msg)
     });
 
+    
 })
 
 

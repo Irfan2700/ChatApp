@@ -19,7 +19,7 @@
 
     <div class="reg">
 
-        <script>
+        <!-- <script>
         var password = document.getElementById("password")
             , confirm_password = document.getElementById("confirm_password");
           
@@ -33,7 +33,7 @@
           
           password.onchange = validatePassword;
           confirm_password.onkeyup = validatePassword;
-          </script>
+          </script> -->
 
         <form class="regform">
             <table style="width: 100%">
@@ -65,7 +65,7 @@
                 </tr>
                 <tr>
                     <td width ="30%">Confirm Password : </td>
-                    <td><input class="regpass" name="Conpass" type="password" id="confirm_password"  required></td><tr></tr><tr></tr>
+                    <td><input class="regpass" name="Conpass" type="password" id="confirm_password" ng-model = "user.conpass" required></td><tr></tr><tr></tr>
                 </tr>
                 <tr><td><button class="regreset" type="reset">Reset</button></td>
                     <td><input class="regsubmit" name="submit" type="submit" placeholder="Submit" ng-click ="register()"></td>
