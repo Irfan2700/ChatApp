@@ -3,8 +3,11 @@
  */
 var usermod = require('../models/registerMongo');
 var chatmod = require('../models/chatMessgModel');
+var personalmod = require('../models/personalChatModel');
 var jwt = require('jsonwebtoken');
 var config = require('./config.json');
+// var receiverid;
+// var senderid;
 
 var config = require('./config.json');
 const secret = config.secret;
@@ -279,6 +282,71 @@ exports.chatlist = function (req, res) {
     var respo = {};
 
     chatmod.find({}, function (err, data) {
+
+        if (err) {
+
+            respo = {
+                'Success': "false",
+                'message': "Error in fetching data "
+            }
+        } else {
+            respo = {
+                'Success': 'true',
+                'message': data
+            }
+        }
+
+       // console.log(respo)
+        return res.status(200).send(respo);
+    });
+}
+
+
+exports.personalMessgAdd = function(senderId, senderName, receiverId, receiverName, message, dateTime){
+
+
+    var db = new personalmod();
+
+    // receiverid = receiverId;
+    // senderid = senderId;
+
+    db.senderId = senderId;
+    db.senderName = senderName;
+    db.receiverId = receiverId;
+    db.receiverName = receiverName;
+    db.message = message;
+    db.dateTime = dateTime;
+
+    db.save(function(err){
+
+
+        if (err) {
+
+            response = {
+                'Success': "false",
+                'message': "Error in Data Fetching"
+            }
+        } else {
+
+            response = {
+
+                'Success': "true",
+                'message': "Message Data successfully Saved into DataBase "
+            }
+        };
+        console.log(response);
+
+    })
+}
+
+exports.personalChatlist = function (req, res) {
+
+    var respo = {};
+
+    var receiverid = req.params.receiverid;
+    var senderid = req.params.senderid; 
+
+    personalmod.find({$or:[{'receiverId': receiverid, 'senderId': senderid},{'receiverId': senderid, 'senderId': receiverid}]}, function (err, data) {
 
         if (err) {
 

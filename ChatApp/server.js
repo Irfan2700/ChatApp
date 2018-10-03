@@ -40,4 +40,10 @@ io.on('connection', function(client){
         io.emit('chatroomClient', data);
         // client.broadcast.emit('chatroomClient', data);
     })
+
+    client.on('personalChatBackend', function(data){
+
+        users.personalMessgAdd(data.senderId, data.senderName, data.receiverId, data.receiverName, data.message, data.dateTime)
+        io.emit(data.receiverId, data);
+    })
 });

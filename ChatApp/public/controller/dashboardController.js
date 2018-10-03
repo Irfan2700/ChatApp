@@ -29,11 +29,12 @@ chatApp.controller('dashboardControl', function($scope, $http, $location, Socket
         var userList=[];
         console.log(response.data.data[0])
         info = response.data.data;
-        for(var i=0; i<response.data.data.length; i++){
-            userList.push(response.data.data[i].username);
-        }
+        // for(var i=0; i<response.data.data.length; i++){
+        //     userList.push(response.data.data[i].username);
+        // }
+
         console.log(userList)
-        $scope.userlist = userList;
+        $scope.userlist = response.data.data;
         console.log("Authenticated successfully")
     },function(error){
         console.log("Error in fetching data")   
@@ -46,6 +47,13 @@ chatApp.controller('dashboardControl', function($scope, $http, $location, Socket
         localStorage.removeItem('userid');
         localStorage.removeItem('uname');
         $location.path("/");
+    }
+
+    $scope.person = function(userId, userName){
+
+        localStorage.setItem('receiverId', userId)
+        localStorage.setItem('receiverName', userName);
+        $location.path("/dashboard/personalMessage");
     }
 
 

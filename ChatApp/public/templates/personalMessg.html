@@ -1,0 +1,44 @@
+<body>
+
+    <div id="container">
+        <div id="header">
+            <!-- <div id="logo"><img src="../images/chatapp.png" width="100px" height="100px"></div> -->
+            <h1 class="h1" align="center">CHAT APP</h1>
+            <p ng-repeat="uname in userName" id="userName">{{uname}}</p>
+            <div id="logout"><button id=logoutButton type="button" ng-click="close()">close</button></div>
+        </div>
+        <div id=Area>
+            <div id="leftarea">
+                <!-- <div id="user" ><li id="memberlist" ng-repeat = "name in userlist">
+                    <a href="#">{{name}}</a>
+                </li></div> -->
+            </div>
+            <div id="rightarea">
+                <div id="messagebox">
+                    <div>
+                        <div ng-repeat="chat in chatlist">
+                            <p id="leftmessgContainer" ng-if="currentUserId != chat.senderId">{{chat.senderName}} :
+                                <span id="messgText">{{chat.message}}</span><br><br><span id="left-time">{{chat.dateTime
+                                    | date: 'medium'}}</span>
+                            </p>
+
+                            <p id="rightMessgContainer" ng-if="currentUserId == chat.senderId">{{chat.senderName}} :
+                                <span id="messgText">{{chat.message}}</span><br><br><span id="right-time">{{chat.dateTime
+                                    | date: 'medium'}}</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="sendbox">
+                    <div id="textarea">
+                        <textarea id="text" rows="4" cols="50" placeholder="Enter your message" ng-model="message"
+                            required></textarea><button id="sendbtn" type="button" placeholder="send" ng-click="send()">send!</button>
+                    </div>
+
+                </div>dashboard
+            </div>
+        </div>
+    </div>
+
+
+</body>

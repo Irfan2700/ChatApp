@@ -43,12 +43,12 @@ chatApp.controller('loginControl', function($scope, $http, $location){
                $scope.message="login Unsuccessful"
            }
         })
-    //    },
-    //    function(err){
-    //        $scop.erromessage="invalif "
-    //    })
+       },
+       function(err){
+           $scop.erromessage="Invalid User Entry "
+       }
 
        
-       }
+       
        
    });

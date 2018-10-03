@@ -20,7 +20,13 @@ chatApp.config(function($routeProvider){
 
         templateUrl: 'templates/dashboard.html',
         controller: 'dashboardControl'
-    });
+    })
+
+    .when('/dashboard/personalMessage', {
+
+        templateUrl: 'templates/personalMessg.html',
+        controller: 'personalMessgControl'
+    })
 });
 
 chatApp.service('SocketService', ['socketFactory', function SocketService(socketFactory) {

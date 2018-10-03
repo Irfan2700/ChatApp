@@ -76,6 +76,8 @@
     resize: none;
     border-radius: 10px;
     overflow: auto;
+    display: flex;
+    flex-direction: column-reverse;
     
 }
 
@@ -182,6 +184,7 @@
     font-size: 15px;
     color: #031268;
     float: right;
+    word-wrap: break-word;
 }
 
 #right-time{

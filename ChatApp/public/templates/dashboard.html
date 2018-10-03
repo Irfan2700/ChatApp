@@ -22,7 +22,7 @@ style="background-color:aqua; width: 100%; height: 8%; float: top"
     <div id=Area>
         <div id="leftarea">
             <div id="user" ><li id="memberlist" ng-repeat = "name in userlist">
-                <a href="#">{{name}}</a>
+                <a href ng-click = "person(name.userid, name.username)">{{name.username}}</a>
             </li></div>
         </div>
         <div id="rightarea">
