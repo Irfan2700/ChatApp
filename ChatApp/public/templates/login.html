@@ -15,26 +15,29 @@
 
     <div>
 
-        <form class="logform" name="logform">
+        <form class="logform" name="logform" novalidate>
 
             <table style="width: 100%">
 
                 <tr>
                     <td>
                         Email : </td>
-                    <td><input class="logmail" name="email" type="email" value="" placeholder="eg. abc123@xyz.com" ng-model = user.email required></td>
+                    <td><input class="logmail" name="email" type="email" value="" placeholder="eg. abc123@xyz.com" ng-model = user.email required></td><td><span id="emailvalid" ng-show = "logform.email.$touched && logform.email.$error.required">Invalid Email</span></td>
+                    
                 <tr> </tr>
                 </tr>
                 <tr><td style="
                     padding-top: 48px">Password : </td>
                     <td><input class="logpass" name="password" type="password" value="" placeholder="" ng-model = user.password required></td>
                 <tr></tr>
+                <tr><td> </td><td><a href="#!" id="forgetPass">forgot password?</a></td></tr>
                 </tr>
+             
             </tr>
             <tr><td><a href="#!/registration"><button class="logbutton" type="button" >Sign-up</button></a></td>
-                <td><input class="loginbut" name="submit" type="submit" ng-click = "login()"></td>
+                <td><input class="loginbut" name="submit" type="submit" ng-click = "login()" ng-disabled ="logform.email.$dirty && logform.email.$invalid && logform.password.$dirty && logform.password.$invalid"></td>
             </tr>
-            <span ng-show = "logform.submit.$ $$ logform.submit.$"></span>
+            
             <!-- <a href="#!/dashboard" style="font-size: medium">Already register? Login</a> -->
             </table>
         </form>

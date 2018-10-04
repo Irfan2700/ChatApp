@@ -2,9 +2,13 @@
 <html ng-app="chatApp">
 <head>
 
+    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!-- css files -->
     <link rel="stylesheet" href="./asset/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/1.1.0/toaster.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="./asset/dash.css">
 
 
@@ -13,6 +17,10 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular-route.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-socket-io/0.7.0/socket.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/1.1.0/toaster.min.js"></script>
+    
+    <script src="https://code.angularjs.org/1.2.0/angular-animate.min.js" ></script>
+
 
     <script src="https://cdn.jsdelivr.net/satellizer/0.15.5/satellizer.min.js"></script>
     <script src="script.js"></script>
@@ -27,7 +35,7 @@
 </head>
 
 <body>
-    
+    <toaster-container></toaster-container>
     <div ng-view></div>
 
 </body>
